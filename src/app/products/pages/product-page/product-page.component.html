@@ -14,7 +14,9 @@
     </div>
 
     <div class="col-auto">
-      <span>algo de informacion</span>
+      <span customLabel [color]="color" [errors]="myForm.get('name')?.errors">
+        Temporal
+      </span>
     </div>
 
   </div>
