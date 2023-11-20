@@ -5,21 +5,21 @@
   <div class="col-4">
     <h3>Usuario actual: {{ userId() }}</h3>
 
-    <button class="btn btn-primary">anterior</button>
+    <button (click)="loadUser(userId() -1)" class="btn btn-primary">anterior</button>
     &nbsp;
-    <button class="btn btn-primary">siguiente</button>
+    <button (click)="loadUser(userId() +1)" class="btn btn-primary">siguiente</button>
   </div>
 
-  <div class="col-8">
+  <div class="col-8" *ngIf="currentUser()">
     <h3>Usuario</h3>
-    <p>Correo: </p>
-    <p>Nombre: </p>
+    <p>Correo: {{currentUser()!.email}}</p>
+    <p>Nombre: {{fullName()}}</p>
 
-    <img src="" alt="Avatar">
+    <img [src]="currentUser()?.avatar" alt="Avatar">
   </div>
 
 
-  <div class="col-8 text-danger">
+  <div class="col-8 text-danger" *ngIf="!userWasFound()">
     <h3>Usuario no encontrado</h3>
   </div>
 </div>
